@@ -1,5 +1,6 @@
 package Top100Liked;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -19,10 +20,10 @@ public class LC763PartitionLabels {
 
     public List<Integer> partitionLabels(String s) {
 
-        // Start at int i = position 0
+        // i for starting position, p for ending position
         int i = 0, p = 0;
         char currentChar = '@';
-        List<Integer> r = null;
+        List<Integer> r = new ArrayList<Integer>();
 
         for (int j = 0; j < s.length(); j++) {
 
@@ -48,7 +49,7 @@ public class LC763PartitionLabels {
             }
             
             // Now, set the length of the first partition, update i, and repeat starting at the end of the substring
-            r.add(p-i);
+            r.add(Integer.valueOf(p-i+1));
             i = p+1;
             j = p;
         }
